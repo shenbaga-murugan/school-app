@@ -16,6 +16,10 @@ export class EmploymentStatusComponent {
   quit = new EventEmitter();
   onToggle() {
     this.isEmployed = !this.isEmployed;
-    this.quit.emit(this.empIndex);
+    this.quit.emit({isEmployed: this.isEmployed, empIndex: this.empIndex});
   }
+}
+export interface EmpStatus {
+  isEmployed: boolean,
+  empIndex: number
 }

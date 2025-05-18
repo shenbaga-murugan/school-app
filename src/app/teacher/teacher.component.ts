@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Teacher, TeacherService } from './teacher.service';
+import { EmpStatus } from '../employment-status/employment-status.component';
 
 @Component({
   selector: 'teacher',
@@ -26,7 +27,11 @@ export class TeacherComponent {
     this.teacherSubject = "";
     this.teacherDoj = new Date();
   }
-  quitTeacher(i: number) {
-    this.teachers[i].lwd = new Date();
+  quitTeacher(staus: EmpStatus) {
+    if(staus["isEmployed"]) {
+      delete this.teachers[staus["empIndex"]].lwd;
+    } else {
+      this.teachers[staus["empIndex"]].lwd = new Date();
+    }
   }
 }
