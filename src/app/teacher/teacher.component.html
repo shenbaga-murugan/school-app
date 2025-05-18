@@ -1,0 +1,21 @@
+<h2>We have {{teachers.length}} teachers in our school!</h2>
+<table>
+    <tr>
+        <td><b>Name</b></td>
+        <td><b>Subject</b></td>
+        <td><b>Date of Joining</b></td>
+        <td><b>Status</b></td>
+    </tr>
+    <tr *ngFor="let teacher of teachers">
+        <td>{{teacher.name}}</td>
+        <td>{{teacher.subject | shorten}}</td>
+        <td>{{teacher.doj | date:"dd-MMM-yyyy"}}</td>
+        <td><employment-status></employment-status></td>
+    </tr><tr>
+        <td><input [(ngModel)] = "teacherName"/></td>
+        <td><input [(ngModel)] ="teacherSubject"/></td>
+        <td><input [(ngModel)] ="teacherDoj" type="date"/></td>
+        <td><button (click)="addTeacher()">Add</button><br/></td>
+    </tr>
+</table>
+<button (click) = "reverse()">Reverse</button>

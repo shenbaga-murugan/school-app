@@ -1,0 +1,28 @@
+import { Component } from '@angular/core';
+import { Teacher, TeacherService } from './teacher.service';
+
+@Component({
+  selector: 'teacher',
+  standalone: false,
+  templateUrl: './teacher.component.html',
+  styleUrl: './teacher.component.css'
+})
+export class TeacherComponent {
+  teacherName: string = "";
+  teacherSubject: string = "";
+  teacherDoj: Date = new Date();
+  teachers: Teacher[];
+  constructor(private teacherService:TeacherService) {
+    this.teachers = teacherService.getTeachers();
+  }
+  reverse() {
+    this.teachers = this.teachers.reverse();
+  }
+  addTeacher() {
+    if(this.teacherName && this.teacherSubject) 
+      this.teachers.push({"name":this.teacherName, "subject":this.teacherSubject, "doj": this.teacherDoj});
+    this.teacherName = "";
+    this.teacherSubject = "";
+    this.teacherDoj = new Date();
+  }
+}
