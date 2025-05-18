@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'employment-status',
@@ -7,10 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './employment-status.component.css'
 })
 export class EmploymentStatusComponent {
+//input param with alias
+  @Input('is-employed')
   isEmployed: boolean = true;
-  buildingClass: string = "bi-buildings-fill";
+  @Input('emp-index')
+  empIndex!: number;
+  @Output()
+  quit = new EventEmitter();
   onToggle() {
     this.isEmployed = !this.isEmployed;
-    this.buildingClass = this.isEmployed ? "bi-buildings-fill" : "bi-buildings";
+    this.quit.emit(this.empIndex);
   }
 }

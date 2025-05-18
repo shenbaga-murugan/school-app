@@ -9,6 +9,7 @@ import { StrudentService } from './student.service';
 import { FormsModule } from '@angular/forms';
 import { ShortenPipe } from './shorten.pipe';
 import { EmploymentStatusComponent } from './employment-status/employment-status.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EmploymentStatusComponent } from './employment-status/employment-status
     StudentComponent,
     TeacherComponent,
     ShortenPipe,
-    EmploymentStatusComponent
+    EmploymentStatusComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,

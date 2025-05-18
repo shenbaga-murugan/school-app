@@ -6,11 +6,12 @@
         <td><b>Date of Joining</b></td>
         <td><b>Status</b></td>
     </tr>
-    <tr *ngFor="let teacher of teachers">
+    <tr *ngFor="let teacher of teachers; index as i">
         <td>{{teacher.name}}</td>
         <td>{{teacher.subject | shorten}}</td>
         <td>{{teacher.doj | date:"dd-MMM-yyyy"}}</td>
-        <td><employment-status></employment-status></td>
+        <td>{{teacher.lwd | date:"dd-MMM-yyyy"}}</td>
+        <td><employment-status [emp-index] = "i" [is-employed]="!(teacher.lwd)" (quit) = "quitTeacher($event)"></employment-status></td>
     </tr><tr>
         <td><input [(ngModel)] = "teacherName"/></td>
         <td><input [(ngModel)] ="teacherSubject"/></td>

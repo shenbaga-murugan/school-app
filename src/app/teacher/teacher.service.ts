@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class TeacherService {
   getTeachers() {
-    return [{name: "Fred", subject:"Physics", doj: new Date(2013, 6, 29)}, 
+    return [{name: "Fred", subject:"Physics", doj: new Date(2013, 6, 29), lwd: new Date()}, 
       {name: "Dave", subject:"Chemistry", doj: new Date(2019, 8, 2)}, 
       {name: "Rob", subject:"English", doj: new Date(2013, 5, 21)}];
   }
@@ -13,5 +13,6 @@ export class TeacherService {
 export interface Teacher {
   name: string,
   subject: string,
-  doj: Date
+  doj: Date,
+  lwd?: Date
 }

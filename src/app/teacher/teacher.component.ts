@@ -11,6 +11,7 @@ export class TeacherComponent {
   teacherName: string = "";
   teacherSubject: string = "";
   teacherDoj: Date = new Date();
+  teacherLwd!: Date;
   teachers: Teacher[];
   constructor(private teacherService:TeacherService) {
     this.teachers = teacherService.getTeachers();
@@ -24,5 +25,8 @@ export class TeacherComponent {
     this.teacherName = "";
     this.teacherSubject = "";
     this.teacherDoj = new Date();
+  }
+  quitTeacher(i: number) {
+    this.teachers[i].lwd = new Date();
   }
 }
