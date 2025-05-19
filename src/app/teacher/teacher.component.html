@@ -4,6 +4,7 @@
         <td><b>Name</b></td>
         <td><b>Subject</b></td>
         <td><b>Date of Joining</b></td>
+        <td><b>Leave From</b></td>
         <td><b>Status</b></td>
     </tr>
     <tr *ngFor="let teacher of teachers; index as i">
@@ -11,7 +12,7 @@
         <td>{{teacher.subject | shorten}}</td>
         <td>{{teacher.doj | date:"dd-MMM-yyyy"}}</td>
         <td>{{teacher.lwd | date:"dd-MMM-yyyy"}}</td>
-        <td><employment-status [emp-index] = "i" [is-employed]="!(teacher.lwd)" (quit) = "quitTeacher($event)"></employment-status></td>
+        <td><employment-status [emp-index] = "i" [is-working]="!(teacher.lwd)" (go-on-leave) = "ptoTeacher($event)"></employment-status></td>
     </tr><tr>
         <td><input [(ngModel)] = "teacherName"/></td>
         <td><input [(ngModel)] ="teacherSubject"/></td>

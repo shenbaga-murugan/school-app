@@ -8,15 +8,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class EmploymentStatusComponent {
 //input param with alias
-  @Input('is-employed')
-  isEmployed: boolean = true;
+  @Input('is-working')
+  isWorking: boolean = true;
   @Input('emp-index')
   empIndex!: number;
-  @Output()
-  quit = new EventEmitter();
+  @Output('go-on-leave')
+  goOnLeave = new EventEmitter();
   onToggle() {
-    this.isEmployed = !this.isEmployed;
-    this.quit.emit({isEmployed: this.isEmployed, empIndex: this.empIndex});
+    this.isWorking = !this.isWorking;
+    this.goOnLeave.emit({isEmployed: this.isWorking, empIndex: this.empIndex});
   }
 }
 export interface EmpStatus {

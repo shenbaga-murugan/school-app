@@ -27,7 +27,7 @@ export class TeacherComponent {
     this.teacherSubject = "";
     this.teacherDoj = new Date();
   }
-  quitTeacher(staus: EmpStatus) {
+  ptoTeacher(staus: EmpStatus) {
     if(staus["isEmployed"]) {
       delete this.teachers[staus["empIndex"]].lwd;
     } else {
