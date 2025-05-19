@@ -1,2 +1,8 @@
-<input [(ngModel)] = "bookTitle"/>
-<p>{{bookTitle | titlecase}}</p>
+<div class="elem-heading">
+    <ng-content select=".titleText"></ng-content>
+    <input [(ngModel)] = "bookTitle"/>
+</div>
+<p class="elem-result">
+    <ng-content select=".resultHeading"></ng-content>
+    {{bookTitle | titlecase}}
+</p>
