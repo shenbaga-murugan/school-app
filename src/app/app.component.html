@@ -7,5 +7,5 @@
 </book>
 <hr/>
 <heart-button [isLiked]="likeStats.isLiked" [likeCount]="likeStats.likeCount" (likeClicked)="heartButtonClicked($event)">
-    <p class="famous-quote">Sharing is good, and with digital technology, sharing is easy. - Richard Stallman</p>
+    <span class="famous-quote" [innerHTML] = "likeStats.quote | quote"></span>
 </heart-button>

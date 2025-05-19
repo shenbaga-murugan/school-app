@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'school-app';
   likeStats = {
+    quote: "Sharing is good, and with digital technology, sharing is easy. - Richard Stallman",
     isLiked: false,
     likeCount: 6
   }

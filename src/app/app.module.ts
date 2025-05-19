@@ -11,6 +11,7 @@ import { ShortenPipe } from './shorten.pipe';
 import { EmploymentStatusComponent } from './employment-status/employment-status.component';
 import { BookComponent } from './book/book.component';
 import { HeartButtonComponent } from './heart-button/heart-button.component';
+import { QuotePipe } from './quote/quote.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeartButtonComponent } from './heart-button/heart-button.component';
     ShortenPipe,
     EmploymentStatusComponent,
     BookComponent,
-    HeartButtonComponent
+    HeartButtonComponent,
+    QuotePipe
   ],
   imports: [
     BrowserModule,
