@@ -1,6 +1,11 @@
 <student></student>
 <teacher></teacher>
+<hr/>
 <book>
     <b class="titleText">Book Title: </b>
     <ng-container class="resultHeading">Beautified Title: </ng-container>
 </book>
+<hr/>
+<heart-button [isLiked]="likeStats.isLiked" [likeCount]="likeStats.likeCount" (likeClicked)="heartButtonClicked($event)">
+    <p class="famous-quote">Sharing is good, and with digital technology, sharing is easy. - Richard Stallman</p>
+</heart-button>

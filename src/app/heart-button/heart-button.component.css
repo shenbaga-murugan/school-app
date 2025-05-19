@@ -1,0 +1,9 @@
+.heart-broken {
+    color: silver
+}
+.heart-liked {
+    color:crimson
+}
+.clickable-heart {
+    cursor: pointer;
+}

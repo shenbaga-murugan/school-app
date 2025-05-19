@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ShortenPipe } from './shorten.pipe';
 import { EmploymentStatusComponent } from './employment-status/employment-status.component';
 import { BookComponent } from './book/book.component';
+import { HeartButtonComponent } from './heart-button/heart-button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BookComponent } from './book/book.component';
     TeacherComponent,
     ShortenPipe,
     EmploymentStatusComponent,
-    BookComponent
+    BookComponent,
+    HeartButtonComponent
   ],
   imports: [
     BrowserModule,
