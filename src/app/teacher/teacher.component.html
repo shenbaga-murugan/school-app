@@ -1,4 +1,7 @@
 <h2>We have {{teachers.length}} teachers in our school!</h2>
+<h3 *ngIf="teachers.length % 2 == 0; then evenTeachers else oddTeachers"></h3>
+<ng-template #oddTeachers><i>We have odd number of teachers!</i></ng-template>
+<ng-template #evenTeachers><u>We have even number of teachers!</u></ng-template>
 <table>
     <tr>
         <td><b>Name</b></td>
@@ -20,4 +23,5 @@
         <td><button (click)="addTeacher()">Add</button><br/></td>
     </tr>
 </table>
+<div [hidden]="!anyTeacherOnLeave()">One or more teacher is on leave!</div>
 <button (click) = "reverse()">Reverse</button>

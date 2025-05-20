@@ -34,4 +34,10 @@ export class TeacherComponent {
       this.teachers[staus["empIndex"]].lwd = new Date();
     }
   }
+  anyTeacherOnLeave() {
+    return this.teachers.some(this.isLwDNotNull);
+  }
+  isLwDNotNull(elem: Teacher, ind: number, arr: Teacher[]) {
+    return !!elem.lwd;
+  }
 }

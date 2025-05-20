@@ -1,5 +1,5 @@
 <ng-content select=".famous-quote"></ng-content>
 <span style="padding-left: 10px;"
-    class="clickable-heart bi {{liked ? 'heart-liked bi-heart-fill' : 'heart-broken bi-heart-fill'}}"
+    class="clickable-heart bi bi-heart-fill {{liked ? 'heart-liked' : 'heart-broken'}}"
     (click)="onToggleLike()"></span>
 {{likeCount}}
