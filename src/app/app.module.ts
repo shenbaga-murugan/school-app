@@ -12,6 +12,8 @@ import { EmploymentStatusComponent } from './employment-status/employment-status
 import { BookComponent } from './book/book.component';
 import { HeartButtonComponent } from './heart-button/heart-button.component';
 import { QuotePipe } from './quote/quote.pipe';
+import { SchoolMenuComponent } from './school-menu/school-menu.component';
+import { CommentBoxDirective } from './comment-box.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { QuotePipe } from './quote/quote.pipe';
     EmploymentStatusComponent,
     BookComponent,
     HeartButtonComponent,
-    QuotePipe
+    QuotePipe,
+    SchoolMenuComponent,
+    CommentBoxDirective
   ],
   imports: [
     BrowserModule,

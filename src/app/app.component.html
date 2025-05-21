@@ -1,11 +1,17 @@
+<school-menu></school-menu>
 <student></student>
 <teacher></teacher>
 <hr/>
 <book>
+    <!-- tag rendered directly inside ng-content in book component-->
     <b class="titleText">Book Title: </b>
+    <!-- only tag content is rendered inside ng-content in book component-->
     <ng-container class="resultHeading">Beautified Title: </ng-container>
 </book>
 <hr/>
 <heart-button [isLiked]="likeStats.isLiked" [likeCount]="likeStats.likeCount" (likeClicked)="heartButtonClicked($event)">
     <span class="famous-quote" [innerHTML] = "likeStats.quote | quote"></span>
 </heart-button>
+<div>
+    <textarea quoteCommentBox [maxChars]="150" [minChars]="3"></textarea>
+</div>
