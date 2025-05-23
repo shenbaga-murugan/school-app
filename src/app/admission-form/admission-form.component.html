@@ -1,0 +1,81 @@
+<form #admissionForm="ngForm" (ngSubmit)="submitAdmissionForm(admissionForm)">
+  <h3>Student Details</h3>
+  <hr/>
+  <div ngModelGroup="studentDetails">
+    <div class="mb-3">
+      <label for="studentName" class="form-label">
+        Student's Name
+      </label>
+      <input ngModel name="studentName" type="text" 
+        class="form-control" id="studentName" aria-describedby="nameHelp">
+      <div id="nameHelp" class="form-text">
+        Enter the name as in Aadhaar Card.
+      </div>
+    </div>
+    <div class="mb-3 form-check">
+      <input ngModel name="lateralEntry" #isLateral="ngModel" (change)="logModel(isLateral)"
+          type="checkbox" class="form-check-input" id="lateralEntry">
+      <label class="form-check-label" for="lateralEntry">
+        Lateral Entry
+      </label>
+    </div>
+    <div class="form-check-inline form-check">
+      <input required ngModel name="gender" #gender="ngModel" value="M"
+          type="radio" class="form-check-input" id="maleGender">
+      <label class="form-check-label" for="maleGender">
+        Male
+      </label>
+    </div>
+    <div class="form-check-inline form-check">
+      <input required ngModel name="gender" #gender="ngModel" value="F"
+          type="radio" class="form-check-input" id="femaleGender">
+      <label class="form-check-label" for="femaleGender">
+        Female
+      </label>
+    </div>
+  </div>
+  <h3>Parent/Guardian Details</h3>
+  <hr/>
+  <div ngModelGroup="parentsDetails">
+    <div class="mb-3">
+      <label for="parentName" class="form-label">
+        Parent/Guardian Name
+      </label>
+      <input ngModel name="parentName" type="text" 
+        class="form-control" id="parentName">
+    </div>
+    <div class="mb-3">
+      <label for="parentRel" class="form-label">
+        Relationship
+      </label>
+      <select 
+        required
+        ngModel 
+        #parentRel="ngModel" 
+        name="parentRel" 
+        id="parentRel"
+        class="form-control">
+        <option value="">Pick one</option>
+        <!-- use ngValue instead of value if you want to bind the entire json instead of string value-->
+        <option *ngFor="let rel of relToStudent" [value]="rel.value">{{rel.text}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="mobileNumber" class="form-label">
+        Parent's Mobile Number
+      </label>
+      <input ngModel required minlength="10" maxlength="10" name="mobileNumber" 
+          #mobileNumber="ngModel" type="type" class="form-control" id="mobileNumber">
+      <div class="alert alert-danger" *ngIf="mobileNumber.touched && !mobileNumber.valid">
+          <div>A valid Parent's mobile number is required!</div>
+          <div *ngIf="mobileNumber.dirty && (mobileNumber.errors?.['minlength'] || mobileNumber.errors?.['maxlength'])">
+              Mobile number must be 10 digits!
+          </div>
+      </div> 
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary"
+    [disabled]="!admissionForm.valid">
+    Register
+  </button>
+</form>

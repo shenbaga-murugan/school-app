@@ -1,11 +1,12 @@
- <ul class="nav nav-pills">
+<ul class="nav nav-pills" style="position: relative; left: 10px;">
   <li *ngFor="let menuItem of getSchoolMenu()" class="nav-item">
     <a class="nav-link" [class.active]="activeMenuItem == menuItem.menuKey" (click)="activeMenuItem = menuItem.menuKey">{{ menuItem.menuText }}</a>
   </li>
 </ul> 
-<div [ngSwitch]="activeMenuItem" style="border: solid;">
-    <div *ngSwitchCase="'admission'">Admission section</div>
+<div [ngSwitch]="activeMenuItem" style="border: solid; width: 70%; padding: 10px; position: relative; left: 10px;">
+    <div *ngSwitchCase="'admission'"><admission-form></admission-form></div>
     <div *ngSwitchCase="'about-us'">Our School is founded on the principles of self-learning!</div>
-    <div *ngSwitchCase="'contact-us'">You can directly come to our school to contact us!</div>
-    <div *ngSwitchDefault="'contact-us'">You can't see me!</div>
+    <div *ngSwitchCase="'contact-us'"><contact-form></contact-form></div>
+    <div *ngSwitchCase="'signup'"><signup-form></signup-form></div>
+    <div *ngSwitchDefault>You can't see me!</div>
 </div>

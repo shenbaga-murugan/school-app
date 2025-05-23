@@ -7,7 +7,8 @@ export class SchoolMenuService {
   getMenuItems() : MenuItem[] {
     return [{menuText: 'Admission', menuKey: 'admission'},
       {menuText: 'About Us', menuKey: 'about-us'},
-      {menuText: 'Contact Us', menuKey: 'contact-us'}
+      {menuText: 'Contact Us', menuKey: 'contact-us'},
+      {menuText: 'Signup', menuKey: 'signup'}
     ];
   }
 }

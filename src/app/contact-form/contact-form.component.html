@@ -1,0 +1,38 @@
+<form #contactForm="ngForm" (ngSubmit)="submitContactForm(contactForm)">
+    <div class="mb-3">
+      <label for="subject" class="form-label">
+        Subject
+      </label>
+      <input
+        required
+        [(ngModel)] = "subject"
+        name="subject" type="text" 
+        class="form-control" id="subject"
+        (blur)="onSubjectBlur()">
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">
+        Content
+      </label>
+      <textarea
+        required
+        ngModel
+        #content="ngModel"
+        name="content" type="text" 
+        class="form-control" id="subject"
+        minlength="25"
+        maxlength="250"
+        aria-describedby="nameHelp">
+      </textarea>
+      <div *ngIf="!content.valid" id="nameHelp" class="form-text">
+        Enter at least 25 characters.
+      </div>
+      <div *ngIf="content.valid" id="nameHelp" class="form-text">
+        You can enter {{250 - content?.value?.length}} more characters.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"
+        [disabled]="!contactForm.valid">
+        Send
+    </button>
+</form>
