@@ -1,4 +1,7 @@
 <form [formGroup]="signupForm">
+    <div *ngIf="signupForm.dirty && !signupForm.valid" class="alert alert-warning">
+        Check the highlighted fields for error.
+    </div>
     <div class="form-group">
         <label for="username">Username</label>
         <input 
@@ -6,14 +9,41 @@
             id="username" 
             type="text" 
             class="form-control">
+        <div *ngIf="username?.pending" class="spinner-grow spinner-grow-sm" role="status">
+          <span class="visually-hidden">Validating...</span>
+        </div>
+        <div class="alert alert-danger" 
+            *ngIf="!username?.pending && username?.touched && !username?.valid">
+            <div *ngIf="username?.errors?.['required']">User name is required.</div>
+            <div *ngIf="username?.errors?.['minlength']">User name should be at least {{username?.errors?.['minlength'].requiredLength}}.</div>
+            <div *ngIf="username?.errors?.['invalidChar']">User name should not contain <b>{{username?.errors?.['invalidChar']}}</b>.</div>
+            <div *ngIf="username?.errors?.['mustContainNumber']">User name must contain a number.</div>
+            <div *ngIf="username?.errors?.['notUnique']">User name already taken!</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
         <input 
             formControlName="password"
             id="password" 
-            type="text" 
+            type="password" 
             class="form-control">
+        <div class="alert alert-danger" 
+            *ngIf="!password?.pending && password?.touched && !password?.valid">
+            <div *ngIf="password?.errors?.['required']">Password cannot be empty!</div>
+            <div *ngIf="password?.errors?.['minlength']">Password should be at least {{password?.errors?.['minlength'].requiredLength}}.</div>
+            <div *ngIf="password?.errors?.['mustContain']">Password must contain at least one of the following characters <b>{{password?.errors?.['mustContain']}}</b>.</div>
+            <div *ngIf="username?.errors?.['mustContainNumber']">Password must contain a number.</div>
+        </div>
+    </div>
+    <div formGroupName="spam">
+        <div class="mb-3 form-check">
+        <input formControlName="subscribe"
+            type="checkbox" class="form-check-input" id="subscribe">
+        <label class="form-check-label" for="subscribe">
+            Subscribe for our weekly updates!
+        </label>
+        </div>
     </div>
     <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
