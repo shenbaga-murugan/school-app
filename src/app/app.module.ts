@@ -17,6 +17,8 @@ import { CommentBoxDirective } from './comment-box.directive';
 import { AdmissionFormComponent } from './admission-form/admission-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { HobbiesComponent } from './hobbies/hobbies.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     SignupFormComponent,
     CommentBoxDirective,
     AdmissionFormComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    HobbiesComponent,
+    PasswordResetComponent
   ],
   imports: [
     BrowserModule,

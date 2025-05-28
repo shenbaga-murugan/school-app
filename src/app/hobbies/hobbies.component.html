@@ -1,0 +1,22 @@
+<h3>Hobbies</h3>
+<form style="width: 40%; padding-left: 10px;" [formGroup]="hobbiesForm" (ngSubmit)="logForm()">
+    <ul class="list-group" formArrayName="hobbies">
+        <li *ngFor="let hobbyGroup of hobbies.controls; index as i" [formGroupName]="i" class="list-grou-item">
+            <label for="hobby{{i}}">Hobby</label>
+            <input type="text" id="hobby{{i}}" 
+                class="form-control" formControlName="hobby">
+            <label for="achievement{{i}}">Achievement</label>
+            <input type="text" id="achievement{{i}}" 
+                class="form-control" formControlName="achievement">
+            <button type="button" class="btn btn-primary" (click)="delHobby(i)">
+                Remove Hobby
+            </button>
+        </li>
+    </ul>
+    <button type="button" class="btn btn-primary" (click)="addHobby()">
+        Add Hobby
+    </button>
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+</form>
